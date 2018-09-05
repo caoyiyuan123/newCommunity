@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--安全管理器-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!--认证器-->
+        <property name="authenticator" ref="authenticator"/>
+        <!--授权器-->
+        <property name="authorizer" ref="authorizer"/>
+    </bean>
+
+    <!--认证器-->
+    <bean id="authenticator" class="org.apache.shiro.authc.pam.ModularRealmAuthenticator">
+        <property name="realms">
+            <list>
+                <ref bean="jdbcRealm"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--授权器-->
+    <bean id="authorizer" class="org.apache.shiro.authz.ModularRealmAuthorizer">
+        <property name="realms">
+            <list>
+                <ref bean="jdbcRealm"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--自定义Realm-->
+    <bean id="jdbcRealm" class="com.community.realm.ShiroRealms">
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <property name="hashAlgorithmName" value="MD5"/>
+                <property name="hashIterations" value="1024"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- 用来管理spring容器当中的Shiro常见的对象 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor">
+
+    </bean>
+
+    <!--配置shiro过滤器-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="SecurityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/register/registerIndex"/>
+        <property name="successUrl" value="/login/loginSuccess"/>
+        <property name="unauthorizedUrl" value=""/>
+        <property name="filterChainDefinitions">
+            <value>
+                <!--静态资源的释放-->
+                /styles/** = anon
+                /js/** = anon
+                /images/** = anon
+
+                /login/** = anon
+                /login/ModifyImage = anon
+                /registerSuccess = anon
+
+                /login/loginIndex = anon
+
+                /register/** = anon
+
+                /changeImg = anon
+
+                /logout = logout
+
+               <!--/** = authc-->
+            </value>
+        </property>
+
+    </bean>
+</beans>

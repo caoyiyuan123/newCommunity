@@ -1,0 +1,123 @@
+
+
+/**登录后首页的css*/
+body{
+    background-image: url("../../images/background.jpg");
+}
+.data{
+    /*border: 1px solid red;*/
+    width: 1000px;
+    height: 400px;
+    margin: 50px auto;
+
+    background-color: rgba(251,237,206,0.6);
+
+}
+
+/**搜索框的位置*/
+.search{
+    width:100%;
+    height: 60px;
+    margin-left: 400px;
+    margin-top: 60px;
+    /*background-color: #006e98;*/
+    position: relative;
+}
+
+/**输入框的位置*/
+.search_context {
+    width: 200px;
+    height: 30px;
+    padding-left:5px;
+    position: relative;
+    left: 10px;
+    top: 10px;
+    float:left;
+}
+
+/**搜索按钮的位置*/
+.search_button{
+    width:30px;
+    height: 30px;
+    position: relative;
+    left: 10px;
+    top:10px;
+    float:left;
+    background-image: url("../../images/search.png");
+    outline: none;
+    cursor: pointer;
+}
+
+/**登录按钮*/
+.search button{
+    border: none;
+    width:60px;
+    height: 30px;
+    /*background: red;*/
+    position: relative;
+    left:400px;
+    top: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+/**注册按钮*/
+.register_btn{
+    border: none;
+    width:60px;
+    height: 30px;
+    /*background-color: red;*/
+    outline: none;
+    cursor: pointer;
+}
+
+.register_btn:hover,.login_btn:hover{
+   background-color: #28d9e3;
+}
+
+
+/**设置全局变量*/
+td{
+    font-family: "微软雅黑", sans-serif;
+    font-size: 18px;
+    text-align: center;
+    color: #000000;
+}
+
+tr{
+    height:30px;
+}
+
+/**设置列的宽度*/
+.id{
+    width: 100px;
+}
+.title{
+    width:300px;
+}
+.author{
+    width:150px;
+}
+.click {
+    width:75px;
+}
+.answer{
+    width: 75px;
+}
+.creatime{
+    width:300px;
+}
+
+/**设置底部分页*/
+.pages{
+    width:500px;
+    height: 40px;
+    /*background-color: red;*/
+    margin: 30px auto;
+}
+
+.pages button{
+    width:60px;
+    height: 30px;
+    color: white;
+}

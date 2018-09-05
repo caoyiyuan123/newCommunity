@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Dept.xml 在com.tarena.entity 包中  -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.apache.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.community.mapper.UserMapper">
+    <insert id="add" parameterType="com.community.entity.User">
+        insert into t_user(username,password)
+        values(#{username},#{password})
+    </insert>
+
+    <select id="findByName" parameterType="String"
+            resultType="com.community.entity.User">
+        SELECT
+        t_user.id,
+        t_user.username,
+        t_user.`password`
+        from t_user
+        where username=#{username}
+    </select>
+
+    <select id="queryImage" parameterType="String" resultType="String">
+        select t_user.imageAddress from t_user
+        where username = #{username}
+    </select>
+
+    <update id="updateImage" parameterType="com.community.entity.User">
+        UPDATE t_user
+        set imageAddress=#{imageAddress}
+        where username=#{username}
+    </update>
+</mapper>
+
+
+
+
+
+
+

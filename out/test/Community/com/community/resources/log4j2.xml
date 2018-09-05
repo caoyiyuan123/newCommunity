@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration status="OFF" monitorInterval="30">
+    <properties>
+        <property name="filename">demo.log</property>
+        <property name="path">F:/workSpaces3/Community/log/</property>
+    </properties>
+
+    <appenders>
+        <!--输出到控制台-->
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy/MM/dd  HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </Console>
+        <!--输出到本地文件-->
+        <RollingFile name="file" fileName="${path}${filename}"
+                     filePattern = "${path}$${date:yyyy-MM}/app-%d{yyyyMMddHHmmssSSS}.log.gz">
+            <!--日志文件的布局-->
+            <PatternLayout pattern="%d{yyyy/MM/dd  HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <!--文件中所需要记录的信息-->
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <!--当日志文件达到一定大小是生成一个日志文件-->
+            <Policies>
+                <!--<TimeBasedTriggeringPolicy interval="1" modulate="true"/>-->
+                <SizeBasedTriggeringPolicy size="200KB"/>
+            </Policies>
+            <!--日志策略:日志的最大值为20MB-->
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+
+        <!--输出到邮箱-->
+        <!--<SMTP name="Mail" subject="主题" to="695142919@qq.com" from="52145254@qq.com"-->
+              <!--smtpUsername="邮箱的用户名" smtpPassword="邮箱密码" smtpHost="smtp.qq.com"-->
+              <!--smtpPort="25" bufferSize="10" smtpDebug="false">-->
+            <!--<PatternLayout pattern="%d{yyyy/MM/dd 'at' HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>-->
+        <!--</SMTP>-->
+    </appenders>
+
+    <loggers>
+        <logger name="com.community.controller"  level="info" additivity="false">
+            <appenderRef ref="console"/>
+        </logger>
+        <Root level="debug">
+            <appenderRef ref="console"/>
+        </Root>
+    </loggers>
+
+
+</configuration>

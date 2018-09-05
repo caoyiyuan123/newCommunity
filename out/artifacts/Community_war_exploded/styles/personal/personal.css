@@ -1,0 +1,25 @@
+/**个人主页*/
+a{
+    text-decoration: none;
+}
+.title,.content,.bottom{
+    width: 950px;
+    height: 30px;
+    margin: 100px auto;
+    text-align: center;
+    background-color: cadetblue;
+}
+.content,.comment{
+    width: 950px;
+    height: 400px;
+}
+
+.comment{
+    resize: none;
+}
+
+.bottom button{
+    width: 100px;
+    height: 40px;
+    background-color: #5251e3;
+}

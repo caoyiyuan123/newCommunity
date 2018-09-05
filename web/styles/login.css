@@ -1,0 +1,112 @@
+.index{
+    background-image: url("../images/background.jpg");
+}
+
+.login_box{
+    width: 800px;
+    /**设置背景色的透明度*/
+    background-color: rgba(0,0,0,0.3);
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+
+}
+
+.table{
+    width: 800px;
+    height: 240px;
+    /*border: 1px solid #0a97ff;*/
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.table th,.table td{
+    /*border: 1px solid #0a97ff;*/
+    font-size: larger;
+    font-family: "微软雅黑",sans-serif;
+    color: honeydew;
+
+
+}
+
+.table th{
+    text-align: right;
+}
+
+.table #span_location{
+    background-color: red;
+    width: 100px;
+    text-align: left;
+}
+
+/*.table #span_location img ,.table #span_location span{*/
+    /*display: none;*/
+/*}*/
+
+
+
+input{
+    outline: none;
+    width:400px;
+    height: 40px;
+    background-color: white;
+    /**向div元素添加圆角边框*/
+    border-radius: 10px;
+    /**修改光标距离左边框的距离*/
+    padding-left: 10px;
+    font-size: large;
+}
+
+#code{
+    width: 200px;
+
+}
+
+#code input{
+    width: 200px;
+    margin-left: 10px;
+}
+
+/**使用伪类来改变边框色*/
+input:focus{
+    border: 2px solid royalblue;
+}
+
+
+.table .submit{
+    width: 150px;
+    height: 40px;
+    background-color: deepskyblue;
+    outline: none;
+    border:0;
+}
+
+.table .submit:hover{
+    background-color: #0063a0;
+    cursor: pointer;
+}
+
+.logo{
+    padding-left: 200px;
+}
+
+.logo-span{
+    font-family: "微软雅黑", sans-serif;
+    font-size: 50px;
+    color: bisque;
+    /*margin-top: 100px;*/
+    float: right;
+    margin-right: 600px;
+    margin-top: 45px;
+}
+
+span{
+    font-size: 14px;
+    font-family: "微软雅黑", sans-serif;
+}
+
+.span_location{
+    margin-left: 20px;
+}
+
+

@@ -1,0 +1,106 @@
+/**该样式用来管理查看帖子和评论*/
+/**全局样式*/
+p{
+    margin: 0px;
+}
+a{
+    text-decoration: none;
+    color:black
+}
+.title,.content{
+    /**外边距*/
+    margin: 40px auto;
+    background-color: #4178b0;
+    line-height: 60px;
+}
+
+/**标题区域*/
+.title{
+    width:440px;
+    height: 40px;
+    text-align: center;
+    font-size: 22px;
+    font-family: "微软雅黑", sans-serif;
+    line-height: 40px;
+}
+/**内容区域*/
+.content{
+    width:950px;
+    min-height: 20px;
+    /*max-height: 300px;*/
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    text-indent: 2em;
+    font-family: "微软雅黑", sans-serif;
+    font-size: 22px;
+    margin: 60px auto;
+    padding:40px 40px;
+
+}
+
+/**正文设为只读*/
+.mainBody p{
+    margin: 0;
+}
+
+/**点赞和评论数量*/
+.content_evaluation{
+    font-size: 14px;
+    font-family: "微软雅黑", sans-serif;
+    margin: 60px 20px auto;
+}
+
+.like{
+    text-align: center;
+    line-height: 40px;
+}
+
+
+/**评论区域*/
+.comment{
+    width:950px;
+    margin: 30px auto;
+    background-color: #4178b0;
+    line-height: 40px;
+}
+.comment_username,.comment_content,.comment_bottom{
+    width:850px;
+    margin:40px 60px;
+    /*background-color: red;*/
+}
+.comment_username{
+    position: relative;
+}
+.comment_username a,.number{
+    float: right;
+}
+
+/**评论板块*/
+.writeComment{
+    width:500px;
+    height: 100px;
+    margin-left:190px;
+    margin-bottom: 100px;
+    /*display: none; !**默认是隐藏的*!*/
+}
+/**输入框*/
+.input_box{
+    width: 500px;
+    height: 150px;
+    font-size: 16px;
+    font-family: "微软雅黑", sans-serif;
+    resize: none; /**进制对文本域进行拖拽*/
+}
+.commit{
+    text-align: center;
+    line-height: 100px;
+}
+.commit button{
+    width:80px;
+    height: 30px;
+}
+.commit button:hover{
+    cursor: pointer;
+}
+

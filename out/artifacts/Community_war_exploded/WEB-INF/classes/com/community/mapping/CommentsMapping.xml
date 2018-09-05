@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Dept.xml 在com.tarena.entity 包中  -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.apache.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.community.mapper.CommentMapper">
+    <insert id="add" parameterType="com.community.entity.Comments">
+        insert into comment(username,content,creatime)
+        values(#{username},#{content},#{creatime})
+    </insert>
+
+
+</mapper>
+
+
+
+
+
+
+
