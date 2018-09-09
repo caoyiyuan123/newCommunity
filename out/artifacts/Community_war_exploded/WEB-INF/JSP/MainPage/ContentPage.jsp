@@ -1,3 +1,7 @@
+<%@ page import="org.apache.logging.log4j.Logger" %>
+<%@ page import="org.apache.logging.log4j.LogManager" %>
+<%@ page import="com.community.controller.IndexController.ContentController" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -5,7 +9,7 @@
   Time: 10:28
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" charset="UTF-8"/>
@@ -34,9 +38,12 @@
             color:black;
         }
     </style>
+
+    <script>
+
+    </script>
 </head>
 <body>
-
     <jsp:include page="../public/top/top.jsp"/>
 
     <div class="title" id="title">${title}</div>
@@ -58,34 +65,38 @@
         </div>
     </div>
     <div class="comment">
-
+        <c:forEach items="${list}" var="record">
                 <div class="comment_username">
                     <span>
-                        <img id="userImage" class="userImage" name="" src="../../../images/user_images1535105510944.jpg">
+                        <img id="userImage" class="userImage" name="" src="${pageContext.request.contextPath}/demo/queryImage?username=${record.username}">
                     </span>
-                    <span class="username">${sessionScope.username}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span>2018-09-05:15:32:58</span>
+                    <span class="username">${record.username}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <span>${record.creatime}</span>
                 </div>
                 <div class="comment_content">
-                    <p>来得及公开是可敬的考虑过斯柯达经历过</p>
+                    <p>${record.content}</p>
                 </div>
                 <p class="comment_bottom" style="text-align: right;cursor: pointer">
-                    <span>评论</span><span>12</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span id="like_span">点赞</span><span id="numbs">125</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span>收藏</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span>举报</span>
+                    <span>评论</span><span>${record.answer}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="like_span">点赞</span><span id="numbs">${record.like}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%--<span>收藏</span>&nbsp;&nbsp;&nbsp;&nbsp;--%>
+                    <%--<span>举报</span>--%>
                 </p>
+        </c:forEach>
                 <%--<hr style="border:1px solid cornflowerblue">--%>
     </div>
     <div class="writeComment" id="write_comment">
-        <form action="${pageContext.request.contextPath}/comment/sendContent" method="post">
-            <textarea class="input_box" name="content"></textarea>
+        <form action="${pageContext.request.contextPath}/loginSuccess/sendContent?title="+${title} method="post" onsubmit="return check();">
+            <textarea class="input_box" id="content" name="content"></textarea>
             <div class="commit">
                 <%--<span>提交</span>--%>
                 <%--<span>撤销</span>--%>
-                <input type="submit" value="提交">
-                <button style="margin-left: 30px" onclick="window.history.back()">撤销</button>
+
             </div>
+            <input type="submit"  id="btns" value="提交">
+            <button style="margin-left: 30px" onclick="window.history.back()">撤销</button>
+
         </form>
 
 

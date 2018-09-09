@@ -4,11 +4,14 @@
         "http://mybatis.apache.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.community.mapper.CommentMapper">
     <insert id="add" parameterType="com.community.entity.Comments">
-        insert into comment(username,content,creatime)
-        values(#{username},#{content},#{creatime})
+        insert into comment(username,content,creatime,p_id)
+        values(#{username},#{content},#{creatime},#{p_id})
     </insert>
 
-
+    <select id="queryAllByTitle" parameterType="java.lang.String" resultType="com.community.entity.Comments">
+        select * from comment where p_id =
+        (select id from post where title=#{title})
+    </select>
 </mapper>
 
 

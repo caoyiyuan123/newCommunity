@@ -25,7 +25,7 @@
     <h3>个人头像</h3>
     <div class="personalImg">
         <form id="formData" action="${pageContext.request.contextPath}/update/upload" enctype="multipart/form-data" method="post" target="submitFrame">
-            <input type="file" id="file" name="file" onchange="preview(this);">
+            <input type="file" id="file" name="file" value="更换头像" onchange="preview(this);">
             <p><img id="Img" name="img" src=""></p>
             <img id="largerImg" name="img" src="">
             <img id="mediumImg" name="img" src="">

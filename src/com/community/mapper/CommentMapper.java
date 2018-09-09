@@ -1,6 +1,9 @@
 package com.community.mapper;
 
 import com.community.entity.Comments;
+import com.community.entity.Post;
+
+import java.util.List;
 
 /**
  * @Author: jack
@@ -11,5 +14,9 @@ public interface CommentMapper {
 
     /**向数据库添加信息*/
     void add(Comments comments);
+
+    /**根据文章标题来查询所有的评论内容*/
+    List<Comments> queryAllByTitle(String title);
+
 
 }

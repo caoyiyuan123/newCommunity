@@ -9,6 +9,7 @@ import java.util.Date;
  **/
 public class Comments {
     private Integer id;
+    private Integer p_id;   //文章的id
     private String username; //评论的用户名
     private String content; //评论的内容
     private Integer like;  //点赞数量
@@ -21,6 +22,14 @@ public class Comments {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getP_id() {
+        return p_id;
+    }
+
+    public void setP_id(Integer p_id) {
+        this.p_id = p_id;
     }
 
     public String getUsername() {
@@ -67,11 +76,12 @@ public class Comments {
     public String toString() {
         return "Comments{" +
                 "id=" + id +
+                ", p_id=" + p_id +
                 ", username='" + username + '\'' +
                 ", content='" + content + '\'' +
                 ", like=" + like +
                 ", answer=" + answer +
-                ", creatime=" + creatime +
+                ", creatime='" + creatime + '\'' +
                 '}';
     }
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Dept.xml 在com.tarena.entity 包中  -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.apache.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.community.mapper.UserArticalMapper">
+    <select id="queryStatus" parameterType="com.community.entity.UserArtical" resultType="int">
+        select `status` from user_profile
+        where u_id = #{uId} AND a_id = #{aId}
+    </select>
+
+    <insert id="add" parameterType="com.community.entity.UserArtical">
+        INSERT into user_profile(u_id,a_id)
+        values(#{uId},#{aId})
+    </insert>
+
+    <select id="check" parameterType="com.community.entity.UserArtical" resultType="java.lang.String">
+        SELECT user_profile.id from user_profile
+        where user_profile.u_id = #{uId} AND user_profile.a_id = #{aId}
+    </select>
+
+    <update id="modifyStatus" parameterType="com.community.entity.UserArtical">
+        update user_profile
+        set `status` = 1
+        where u_id = #{uId} AND a_id = #{aId}
+    </update>
+
+    <update id="newModifyStatus" parameterType="com.community.entity.UserArtical">
+        update user_profile
+        set `status` = 0
+        where u_id = #{uId} AND a_id = #{aId}
+    </update>
+</mapper>
+
+
+
+
+
+
+
